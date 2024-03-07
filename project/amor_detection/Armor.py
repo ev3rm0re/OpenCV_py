@@ -6,7 +6,7 @@ class params:
     def __init__(self):
         self.binary_threshold = 220
         self.light_max_angle = 30
-        self.light_min_ratio = 0.1
+        self.light_min_ratio = 0.01
         self.light_max_ratio = 0.5
 
         self.armor_min_light_length_ratio = 0.75
@@ -32,7 +32,7 @@ class Armor:
         self.left_light = light1 if light1.center[0] < light2.center[0] else light2
         self.right_light = light1 if light1.center[0] > light2.center[0] else light2
         self.center = (self.left_light.center + self.right_light.center) / 2
-        self.angle = abs(math.atan2(self.left_light.center[1] - self.right_light.center[1], self.left_light.center[0] - self.right_light.center[0])) * 180 / math.pi
+        self.angle = 180 - abs(math.atan2(self.left_light.center[1] - self.right_light.center[1], self.left_light.center[0] - self.right_light.center[0])) * 180 / math.pi
 
 if __name__ == "__main__":
     pass
