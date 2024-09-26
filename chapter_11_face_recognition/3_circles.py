@@ -15,7 +15,8 @@ if __name__ == "__main__":
                     x, y, r = c
                     cv.circle(frame, (x, y), r, (0, 0, 0), 3)
             cv.imshow('frame', frame)
-            cv.waitKey(1)
+            if cv.waitKey(1) == 27: # ESC key exits
+                break
         else:
             break
     cap.release()
