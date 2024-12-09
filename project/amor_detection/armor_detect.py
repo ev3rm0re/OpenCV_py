@@ -105,27 +105,27 @@ if __name__ == "__main__":
     detect_color = "blue"
     det = Detector(detect_color)
 
-    # img = cv2.imread("./images/rm.jpg")
-    # armors = det.detect(img)
-    # for armor in armors:
-    #     cv2.line(img, armor.left_light.top.astype(int), armor.right_light.bottom.astype(int), (0, 255, 0), 2)
-    #     cv2.line(img, armor.left_light.bottom.astype(int), armor.right_light.top.astype(int), (0, 255, 0), 2)
-    #     cv2.putText(img, str(round(armor.angle, 2)), (int(armor.center[0]) + 10, int(armor.center[1])), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1)
-    # cv2.imshow('frame', img)
-    # cv2.waitKey(0)
-    # cv2.destroyAllWindows()
-
-    cap = cv2.VideoCapture(0)
-    while True:
-        ret, frame = cap.read()
-        if ret:
-            armors = det.detect(frame)
-            for armor in armors:
-                cv2.line(frame, armor.left_light.top.astype(int), armor.right_light.bottom.astype(int), (0, 255, 0), 3)
-                cv2.line(frame, armor.left_light.bottom.astype(int), armor.right_light.top.astype(int), (0, 255, 0), 3)
-                cv2.putText(frame, str(round(armor.angle, 2)), (int(armor.center[0]) + 10, int(armor.center[1])), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1)
-            cv2.imshow('frame', frame)
-            if cv2.waitKey(1) == 27:
-                break
+    img = cv2.imread("./images/rm.jpg")
+    armors = det.detect(img)
+    for armor in armors:
+        cv2.line(img, armor.left_light.top.astype(int), armor.right_light.bottom.astype(int), (0, 255, 0), 2)
+        cv2.line(img, armor.left_light.bottom.astype(int), armor.right_light.top.astype(int), (0, 255, 0), 2)
+        cv2.putText(img, str(round(armor.angle, 2)), (int(armor.center[0]) + 10, int(armor.center[1])), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1)
+    cv2.imshow('frame', img)
+    cv2.waitKey(0)
     cv2.destroyAllWindows()
-    cap.release()
+
+    # cap = cv2.VideoCapture(0)
+    # while True:
+    #     ret, frame = cap.read()
+    #     if ret:
+    #         armors = det.detect(frame)
+    #         for armor in armors:
+    #             cv2.line(frame, armor.left_light.top.astype(int), armor.right_light.bottom.astype(int), (0, 255, 0), 3)
+    #             cv2.line(frame, armor.left_light.bottom.astype(int), armor.right_light.top.astype(int), (0, 255, 0), 3)
+    #             cv2.putText(frame, str(round(armor.angle, 2)), (int(armor.center[0]) + 10, int(armor.center[1])), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1)
+    #         cv2.imshow('frame', frame)
+    #         if cv2.waitKey(1) == 27:
+    #             break
+    # cv2.destroyAllWindows()
+    # cap.release()
